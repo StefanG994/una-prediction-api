@@ -1,0 +1,82 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  EMPLOYEE
+}
+
+enum AbsenceType {
+  VACATION
+  SICK
+  OTHER
+}
+
+model User {
+  id               Int               @id @default(autoincrement())
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  email            String            @unique
+  salt             String?
+  password         String?
+  firstName        String
+  lastName         String
+  absenceDaysLeft  Int               @default(25)
+  role             Role              @default(EMPLOYEE)
+  teams            Team[]
+  absenceRequested Absence[]         @relation("user")
+  absenceApproved  Absence[]         @relation("approver")
+  managers         ManagersOnUsers[] @relation("user")
+  managedBy        ManagersOnUsers[] @relation("manager")
+}
+
+model PasswordReset {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  salt      String?
+  token     String   @unique
+  email     String
+}
+
+model ManagersOnUsers {
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], name: "user")
+  userId    Int
+  manager   User     @relation(fields: [managerId], references: [id], name: "manager")
+  managerId Int
+
+  @@unique([userId, managerId], name: "unique_manager_user")
+}
+
+model Team {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  users     User[]
+}
+
+model Absence {
+  id         Int         @id @default(autoincrement())
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  startDate  DateTime
+  endDate    DateTime
+  type       AbsenceType
+  approved   Boolean     @default(false)
+  note       String?
+  user       User        @relation(fields: [userId], references: [id], name: "user")
+  userId     Int
+  approver   User?       @relation(fields: [approverId], references: [id], name: "approver")
+  approverId Int?
+}
