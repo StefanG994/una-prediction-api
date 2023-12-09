@@ -9,12 +9,12 @@ export default class UserSeeder extends BaseSeeder {
 
         const adminUser = await this.prisma.user.create({
             data: {
-                email: 'milan@creen.io',
+                email: 'una.radak.prediction@gmail.com',
                 firstName: this.faker.person.firstName(),
                 lastName: this.faker.person.lastName(),
                 role: Role.ADMIN,
                 salt: salt,
-                password: await bcrypt.hash('password', salt),
+                password: await bcrypt.hash('UnaRadakPrediction2023', salt),
             }
         });
 
