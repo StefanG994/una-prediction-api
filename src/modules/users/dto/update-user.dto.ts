@@ -7,7 +7,7 @@ import { Role, User } from '@prisma/client';
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
     @ApiProperty({
-        example: "filip.panic@creen.io"
+        example: "pera.peric@creen.io"
     })
     @Type(() => String)
     @IsEmail()

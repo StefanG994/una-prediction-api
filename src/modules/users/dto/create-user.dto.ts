@@ -5,7 +5,7 @@ import { IsArray, IsDateString, IsEmail, IsIn, IsNotEmpty, IsNumber, IsOptional,
 
 export class CreateUserDto {
     @ApiProperty({
-        example: "filip.panic@creen.io"
+        example: "pera.peric@gmail.com"
     })
     @Type(() => String)
     @IsEmail()
