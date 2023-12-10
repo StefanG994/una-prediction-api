@@ -11,6 +11,7 @@ export default class UserSeeder extends BaseSeeder {
             data: {
                 email: 'una.radak.prediction@gmail.com',
                 firstName: this.faker.person.firstName(),
+                midName: this.faker.person.middleName(),
                 lastName: this.faker.person.lastName(),
                 role: Role.ADMIN,
                 salt: salt,

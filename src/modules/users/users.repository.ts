@@ -21,8 +21,18 @@ export class UsersRepository {
             data: {
                 email: createUserDto.email,
                 firstName: createUserDto.firstName,
+                midName: createUserDto.midName,
                 lastName: createUserDto.lastName,
+                gender: createUserDto.gender,
+                birth: createUserDto.birth,
+                weight: createUserDto.weight,
+                height: createUserDto.height,
+                city: createUserDto.city,
+                phone: createUserDto.phone,
+                CVI: createUserDto.CVI,
+                indikacija: createUserDto.indikacija,
                 absenceDaysLeft: createUserDto.absenceDaysLeft,
+                drug: createUserDto.drug,
                 role: createUserDto.role,
                 managers: {
                     create: createUserDto.managers && createUserDto.managers.map(({ id }) => ({

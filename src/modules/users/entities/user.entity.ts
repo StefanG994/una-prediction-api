@@ -36,6 +36,36 @@ export class UserEntity implements User {
     fullName: string;
 
     @ApiProperty()
+    midName: string;
+
+    @ApiProperty()
+    gender: string;
+
+    @ApiProperty()
+    city: string;
+
+    @ApiProperty()
+    phone: string;
+
+    @ApiProperty()
+    birth: Date;
+
+    @ApiProperty()
+    weight: number;
+
+    @ApiProperty()
+    height: number;
+
+    @ApiProperty()
+    drug: string;
+
+    @ApiProperty()
+    CVI: string;
+
+    @ApiProperty()
+    indikacija: string;
+
+    @ApiProperty()
     role: Role;
 
     @ApiProperty()

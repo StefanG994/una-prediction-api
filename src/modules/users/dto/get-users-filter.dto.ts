@@ -7,7 +7,7 @@ import { Role } from "@prisma/client";
 export class GetUsersFilterDto extends FilterDto {
     @ApiProperty({
         required: false,
-        example: 'MANAGER,EMPLOYEE'
+        example: 'LEKAR,PACIJENT'
     })
     @IsOptional()
     @IsEnum(Role, { each: true })

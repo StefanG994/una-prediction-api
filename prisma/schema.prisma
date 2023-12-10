@@ -12,8 +12,8 @@ datasource db {
 
 enum Role {
   ADMIN
-  MANAGER
-  EMPLOYEE
+  LEKAR
+  PACIJENT
 }
 
 enum AbsenceType {
@@ -30,9 +30,19 @@ model User {
   salt             String?
   password         String?
   firstName        String
+  midName          String
   lastName         String
   absenceDaysLeft  Int               @default(25)
-  role             Role              @default(EMPLOYEE)
+  birth            DateTime
+  gender           String
+  weight           Float
+  height           Float
+  drug             String
+  CVI              String
+  indikacija       String
+  city             String
+  phone            String
+  role             Role              @default(PACIJENT)
   teams            Team[]
   absenceRequested Absence[]         @relation("user")
   absenceApproved  Absence[]         @relation("approver")
