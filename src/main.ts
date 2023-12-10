@@ -26,8 +26,8 @@ async function bootstrap() {
  app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)), new TransformInterceptor());
   
   const config = new DocumentBuilder()
-    .setTitle('Absence Tracking API')
-    .setDescription('Absence Tracking API description')
+    .setTitle('Una Radak prediction API')
+    .setDescription('Una Radak prediction API description')
     .setVersion('0.1')
     .addBearerAuth()
     .build();

@@ -38,7 +38,7 @@ model User {
   weight           Float
   height           Float
   drug             String
-  CVI              String
+  CVI              String           @default("Nema")
   indikacija       String
   city             String
   phone            String
