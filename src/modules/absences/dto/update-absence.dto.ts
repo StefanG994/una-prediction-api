@@ -4,7 +4,7 @@ import { IsBoolean, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class UpdateAbsenceDto extends PartialType(CreateAbsenceDto) {
 
-    @ApiProperty({ type: 'boolean', default: false })
+  @ApiProperty({ type: 'boolean', default: false })
   @IsBoolean()
   @IsOptional()
   readonly approved: boolean;

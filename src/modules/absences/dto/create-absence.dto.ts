@@ -4,6 +4,7 @@ import {
   IsDateString,
   IsIn,
   IsNotEmpty,
+  IsNumber,
   IsOptional,
   IsString,
 } from 'class-validator';
@@ -30,4 +31,14 @@ export class CreateAbsenceDto {
   @IsString()
   @IsOptional()
   readonly note: string | null;
+
+  @ApiProperty({ type: 'number', default: 0 })
+  @IsNumber()
+  @IsOptional()
+  readonly inr: number;
+
+  @ApiProperty({ type: 'number', default: 0 })
+  @IsNumber()
+  @IsOptional()
+  readonly dose: number;
 }

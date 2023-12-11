@@ -28,4 +28,10 @@ export class Absence {
 
   @ApiProperty({ type: 'integer' })
   userId: number;
+
+  @ApiProperty({ type: 'integer' })
+  inr: number;
+
+  @ApiProperty({ type: 'integer' })
+  dose: number;
 }

@@ -89,4 +89,6 @@ model Absence {
   userId     Int
   approver   User?       @relation(fields: [approverId], references: [id], name: "approver")
   approverId Int?
+  inr        Float       @default(0)
+  dose       Float       @default(0)
 }

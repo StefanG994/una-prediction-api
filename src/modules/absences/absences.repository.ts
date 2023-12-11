@@ -18,6 +18,8 @@ export class AbsenceRepository {
         approved: false,
         note: createAbsenceDto.note,
         userId: user.id,
+        inr: createAbsenceDto.inr,
+        dose: createAbsenceDto.dose,
       },
     });
   }
@@ -64,6 +66,8 @@ export class AbsenceRepository {
         note: updateAbsenceDto.note,
         userId: updateAbsenceDto.userId,
         approverId: updateAbsenceDto.approverId,
+        inr: updateAbsenceDto.inr,
+        dose: updateAbsenceDto.dose,
       },
     });
   }
