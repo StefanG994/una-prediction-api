@@ -86,20 +86,20 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
     readonly drug: string
 
     @ApiProperty({
-        example: ["Hemoragijski", "Ishemijski"]
+        example: "Hemoragijski, Ishemijski"
     })
-    @Type(() => Array)
-    @IsArray()
+    @Type(() => String)
+    @IsString()
     @IsOptional()
-    readonly CVI: Array<string>
+    readonly CVI: string
 
     @ApiProperty({
-        example: ["Secer", "Isijas"]
+        example: "Secer, Isijas"
     })
-    @Type(() => Array)
-    @IsArray()
+    @Type(() => String)
+    @IsString()
     @IsOptional()
-    readonly indikacija: Array<string>
+    readonly indikacija: string
 
     @ApiProperty({
         example: "Donja Dubocica"
