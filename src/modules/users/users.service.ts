@@ -24,8 +24,8 @@ export class UsersService {
 
     this.emailService.sendEmail(
       user.email,
-      'Welcome',
-      'Set up your password <a href="' + this.configService.get('portal.url') + this.configService.get('password.resetPath') + token + "?email=" + user.email + '">here</a>'
+      'Prijava',
+      'Kreirajte svoju lozinku na <a href="' + this.configService.get('portal.url') + this.configService.get('password.resetPath') + token + "?email=" + user.email + '">here</a>'
     );
 
     return user;
