@@ -43,12 +43,9 @@ export class CreateUserDto {
     @IsOptional()
     readonly absenceDaysLeft: number
 
-    @ApiProperty({
-        example: "1996-05-05T00:00:00.000Z"
-    })
-    @Type(() => Date)
+    @ApiProperty({ type: 'string', format: 'date-time' })
     @IsDateString()
-    @IsOptional()
+    @IsNotEmpty()
     readonly birth: Date
 
     @ApiProperty({
