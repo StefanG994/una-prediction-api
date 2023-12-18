@@ -54,7 +54,7 @@ model PasswordReset {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   salt      String?
-  token     String   @unique
+  token     String   //@unique
   email     String
 }
 

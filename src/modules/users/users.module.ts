@@ -6,14 +6,14 @@ import { UsersRepository } from './users.repository';
 import { ConfigService } from '@nestjs/config';
 import { PasswordResetsRepository } from '../passwords/password-resets.repository';
 import { PasswordsService } from '../passwords/passwords.service';
-import { EmailService } from '../../common/email/email.service';
+// import { EmailService } from '../../common/email/email.service';
 import { ApiConfigService } from '../../common/api-config-service';
 import { PaginationService } from '../../common/services/pagination.service';
 
 @Module({
   imports: [PrismaModule],
   controllers: [UsersController],
-  providers: [UsersService, UsersRepository, ConfigService, PasswordsService, PasswordResetsRepository, EmailService, ApiConfigService, PaginationService],
+  providers: [UsersService, UsersRepository, ConfigService, PasswordsService, PasswordResetsRepository, ApiConfigService, PaginationService], //EmailService,
   exports: [UsersService, UsersRepository]
 })
 export class UsersModule {}

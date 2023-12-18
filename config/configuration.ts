@@ -7,12 +7,8 @@ export default () => ({
     host: process.env.POSTGRES_HOST,
     port: process.env.POSTGRES_PORT || 8080
   },
-  ses: {
-    mailFrom: process.env.SES_MAIL_FROM,
-    apiKey: process.env.SES_API_KEY,
-    secret: process.env.SES_SECRET,
-    region: process.env.SES_REGION
-  },
+  gmailUser: process.env.GMAIL_USER,
+  gmailPass: process.env.GMAIL_PASS,
   portal: {
     url: process.env.PORTAL_URL
   },

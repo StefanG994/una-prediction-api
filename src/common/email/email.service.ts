@@ -4,24 +4,27 @@ import * as nodemailer from 'nodemailer';
 
 @Injectable()
 export class EmailService {
-  constructor(private configService: ConfigService) {}
+  private gmailUser: string;
+  private gmailPass: string;
+
+  constructor(private configService: ConfigService) {
+    this.gmailUser = this.configService.get<string>('gmailUser');
+    this.gmailPass = this.configService.get<string>('gmailPass');
+  }
 
   async sendEmail(to: string, subject: string, body: string) {
-    const gmailUser = this.configService.get<string>('GMAIL_USER');
-    const gmailPass = this.configService.get<string>('GMAIL_PASS');
-
     // Create a transporter object using Gmail SMTP
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: gmailUser,
-        pass: gmailPass,
+        user: this.gmailUser,
+        pass: this.gmailPass,
       },
     });
 
     // Email options
     const mailOptions = {
-      from: gmailUser, // Sender's address
+      from: this.gmailUser, // Sender's address
       to: to, // Recipient's address
       subject: subject,
       text: body,

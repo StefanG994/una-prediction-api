@@ -4,7 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from '@prisma/client';
 import { GetUsersFilterDto } from './dto/get-users-filter.dto';
 import { UsersRepository } from './users.repository';
-import { EmailService } from '../../common/email/email.service';
+// import { EmailService } from '../../common/email/email.service';
 import { PasswordsService } from '../passwords/passwords.service';
 import { ConfigService } from '@nestjs/config';
 
@@ -13,7 +13,7 @@ export class UsersService {
   constructor(
     private repository: UsersRepository,
     private passordResetsService: PasswordsService,
-    private emailService: EmailService,
+    // private emailService: EmailService,
     private configService: ConfigService
   ) { }
 
@@ -22,11 +22,11 @@ export class UsersService {
 
     const token = await this.passordResetsService.create(user);
 
-    this.emailService.sendEmail(
-      user.email,
-      'Prijava',
-      'Kreirajte svoju lozinku na <a href="' + this.configService.get('portal.url') + this.configService.get('password.resetPath') + token + "?email=" + user.email + '">here</a>'
-    );
+    // this.emailService.sendEmail(
+    //   user.email,
+    //   'Prijava',
+    //   'Kreirajte svoju lozinku na <a href="' + this.configService.get('portal.url') + this.configService.get('password.resetPath') + token + "?email=" + user.email + '">here</a>'
+    // );
 
     return user;
   }
