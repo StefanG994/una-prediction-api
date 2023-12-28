@@ -1,6 +1,7 @@
 import { Role } from '@prisma/client';
 import BaseSeeder from './BaseSeeder';
 import * as bcrypt from 'bcrypt';
+import { env } from 'process';
 
 export default class UserSeeder extends BaseSeeder {
 
@@ -15,7 +16,6 @@ export default class UserSeeder extends BaseSeeder {
                 lastName: this.faker.person.lastName(),
                 role: Role.ADMIN,
                 birth: this.faker.date.past(),
-                //gender is female
                 gender: 'F',
                 weight: this.faker.datatype.number({ min: 50, max: 100 }),
                 height: this.faker.datatype.number({ min: 150, max: 200 }),
@@ -26,7 +26,7 @@ export default class UserSeeder extends BaseSeeder {
                 indikacija: 'Nema',
                 phone: this.faker.phone.number(),
                 salt: salt,
-                password: await bcrypt.hash('UnaRadakPrediction2023', salt),
+                password: await bcrypt.hash(process.env.GMAIL_PASS, salt),
             }
         });
 

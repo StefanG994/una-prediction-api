@@ -135,8 +135,28 @@ export class UsersRepository {
             data: {
                 email: updateUserDto.email,
                 firstName: updateUserDto.firstName,
+                midName: updateUserDto.midName,
                 lastName: updateUserDto.lastName,
+                gender: updateUserDto.gender,
                 absenceDaysLeft: updateUserDto.absenceDaysLeft,
+                birth: updateUserDto.birth,
+                city: updateUserDto.city,
+                phone: updateUserDto.phone,
+                CVI: updateUserDto.CVI,
+                indikacija: updateUserDto.indikacija,
+                weight: updateUserDto.weight,
+                height: updateUserDto.height,
+                drug: updateUserDto.drug,
+                role: updateUserDto.role,
+                managers: {
+                    create: updateUserDto.managers && updateUserDto.managers.map(({ id }) => ({
+                        manager: {
+                            connect: {
+                                id
+                            },
+                        },
+                    })),
+                }
             }
         });
     }
